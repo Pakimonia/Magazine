@@ -1,0 +1,41 @@
+﻿@model Magazine.Models.ProductViewModel
+
+@Styles.Render("~/Content/templeate/Info.css")
+@{
+    ViewBag.Title = "Info";
+}
+
+<h2>Info</h2>
+
+<div>
+    <h4>ProductViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.Image_URL)" wispanh="200" />
+        </dd>
+
+        <dd>
+            @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price): @Html.DisplayNameFor(model => model.Price)
+        </dd>
+
+        <dd>
+            @Html.DisplayFor(model => model.Info): @Html.DisplayFor(model => model.Info)
+        </dd>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountryProducer): @Html.DisplayFor(model => model.CountryProducer)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

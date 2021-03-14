@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Magazine.Models.ProductViewModel>
+
+@Styles.Render("~/Content/templeate/Card.css")
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Products</h2>
+
+@using (Html.BeginForm("Index", "Products", FormMethod.Get))
+{
+    <div>
+        Name: <br>
+        <input type="text" id="nameToFind" name="nameToFind" />
+
+
+        <input type="submit" id="submit" name="submit" />
+    </div>
+}
+<div class="container row">
+    @foreach (var item in Model)
+    {
+        <div class="container card">
+            <div class="item-card" id="card0" onclick="openSideBar()">
+                <img src="@Html.DisplayFor(modelItem => item.Image_URL)">
+            </div>
+
+            <div class="info">
+                <h3> @Html.ActionLink(@Html.DisplayFor(modelItem => item.Name).ToString(), "Info", new { id = item.Id }, new { style = "color: #fff" })<br>
+                @Html.ActionLink(@Html.DisplayFor(modelItem => item.Price).ToString(), "Basket", new { id = item.Id }, new { style = "color: #fff" })
+                @Html.ActionLink("$", "Buy", new { id = item.Id }, new { style = "color: #fff" })</h3>
+            </div>
+        </div>
+    }
+</div>
